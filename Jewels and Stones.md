@@ -33,11 +33,25 @@ The characters in ```J``` are distinct.
 ---
 
 
-### Solution
+### Solutions
 
 
 ```JavaScript
+// Initial brute force solution
+numJewelsInStones = (J, S) => {
+  let counter = 0
+  let jewels = J.split('')
+    for(i=0;i<S.length;i++) {
+      for(h=0;h<jewels.length; h++){
+        if (S[i].includes(jewels[h])) {
+          counter++
+        }
+      }
+    }
+    return counter
+}
 
+// Optimized solution
 numJewelsInStones = (J, S) => {
     const jewels = new Set(J) // Creates a new Set object of jewels
     return S.split('') // splits stones into an array
